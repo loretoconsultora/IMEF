@@ -20,8 +20,9 @@ el webhook está vacío), pero no se enviará ningún lead hasta que configures:
 
 - `NEXT_PUBLIC_N8N_IMEF_WEBHOOK`: URL del webhook de n8n que recibe los leads
   del formulario (ver `n8n-workflows/imef/README.md` para configurarlo).
-- `NEXT_PUBLIC_WHATSAPP_NUMBER`: número real de WhatsApp de IMEF, usado en el
-  CTA secundario del hero y en el botón flotante.
+- `NEXT_PUBLIC_WHATSAPP_NUMBER`: número de WhatsApp de IMEF, usado en el CTA
+  secundario del hero y en el botón flotante. Ya tiene un valor por defecto
+  hardcodeado en `src/lib/whatsapp.ts`; solo úsala para sobreescribirlo.
 - `NEXT_PUBLIC_VIDEO_EMBED_URL`: URL de embed de YouTube/Vimeo del video de
   prueba social (bloque "Míralo con tus propios ojos"). Sin esta variable se
   muestra un placeholder.
@@ -29,7 +30,6 @@ el webhook está vacío), pero no se enviará ningún lead hasta que configures:
 ## Pendientes de contenido real (marcados como TODO en el código)
 
 - Video de prueba social y clips del mosaico (`VideoSocialProof.tsx`).
-- Número de WhatsApp real (`src/lib/whatsapp.ts`).
 - IDs de tablero/columna de Monday y correo del equipo en
   `n8n-workflows/imef/01-registro.json`.
 
