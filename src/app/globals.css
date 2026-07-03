@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --azul-profundo: #3365a6;
+  --azul-medio: #6089bf;
+  --azul-teal: #3498bf;
+  --teal: #4baabf;
+  --gris-claro: #f2f2f2;
+  --tinta: #14202b;
+  --tinta-suave: #1c2b3a;
+}
+
+@theme inline {
+  --color-azul-profundo: var(--azul-profundo);
+  --color-azul-medio: var(--azul-medio);
+  --color-azul-teal: var(--azul-teal);
+  --color-teal: var(--teal);
+  --color-gris-claro: var(--gris-claro);
+  --color-tinta: var(--tinta);
+  --color-tinta-suave: var(--tinta-suave);
+  --font-sans: var(--font-montserrat);
+  --font-heading: var(--font-poppins);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: var(--tinta);
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.gradient-imef {
+  background: linear-gradient(135deg, #3365a6 0%, #3498bf 55%, #4baabf 100%);
+}
+
+.gradient-text-imef {
+  background: linear-gradient(135deg, #3365a6, #3498bf, #4baabf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
