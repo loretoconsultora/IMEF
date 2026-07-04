@@ -86,15 +86,6 @@ export default function Hero({ onOpenForm }: Props) {
               Habla por WhatsApp con un asesor
             </a>
           </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xs text-tinta/50"
-          >
-            Sin costo. Sin compromiso.
-          </motion.p>
         </div>
 
         <div>

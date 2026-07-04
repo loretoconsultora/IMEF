@@ -8,6 +8,7 @@ import VideoSocialProof from "@/components/sections/VideoSocialProof";
 import ComoFunciona from "@/components/sections/ComoFunciona";
 import UrgenciaCTA from "@/components/sections/UrgenciaCTA";
 import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
+import CountdownBar from "@/components/layout/CountdownBar";
 import Footer from "@/components/layout/Footer";
 import SolicitudModal from "@/components/forms/SolicitudModal";
 
@@ -17,6 +18,7 @@ export default function Home() {
 
   return (
     <>
+      <CountdownBar onOpenForm={openForm} />
       <main className="min-h-screen bg-white">
         <Hero onOpenForm={openForm} />
         <TeEntendemos />
