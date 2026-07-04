@@ -33,14 +33,16 @@ el webhook está vacío), pero no se enviará ningún lead hasta que configures:
   defecto hardcodeado en `src/components/forms/LeadForm.tsx`; solo úsalas
   para sobreescribirlas.
 
-## Pendientes de contenido real (marcados como TODO en el código)
+## Pendientes de configuración (marcados como TODO en el código)
 
-- IDs de tablero/columna de Monday y correo del equipo en
-  `n8n-workflows/imef/01-registro.json`.
+- ID del Google Sheet (CRM), ID del Google Calendar conectado a Calendly, y
+  credenciales de Google/SMTP en `n8n-workflows/imef/` — ver el README de esa
+  carpeta para la guía completa paso a paso.
 
 ## Estructura
 
 - `src/app/page.tsx` — composición de la landing (una sola página, sin nav).
 - `src/components/sections/` — cada bloque de la landing (Hero, Diferenciadores, etc.).
 - `src/components/forms/LeadForm.tsx` — formulario de 2 pasos embebido en el hero.
-- `n8n-workflows/imef/` — workflow de n8n para procesar los leads (Monday + correo interno).
+- `n8n-workflows/imef/` — workflows de n8n: registro de leads en Google Sheets
+  (CRM) + aviso por correo cuando se confirma una entrevista en Calendly.

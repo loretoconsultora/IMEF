@@ -1,5 +1,5 @@
 {
-  "name": "IMEF - 01 Registro",
+  "name": "IMEF - 01 Registro (Google Sheets)",
   "nodes": [
     {
       "parameters": {
@@ -8,7 +8,7 @@
         "responseMode": "onReceived",
         "options": {}
       },
-      "id": "22222222-0000-4000-8000-000000000001",
+      "id": "33333333-0000-4000-8000-000000000001",
       "name": "Webhook Registro",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
@@ -17,52 +17,61 @@
     },
     {
       "parameters": {
-        "jsThisCode": "",
-        "jsCode": "const item = $input.first().json.body ?? $input.first().json;\nconst columnValues = {\n  // TODO: reemplaza estos IDs de columna por los reales del tablero \"IMEF\" en Monday\n  text_whatsapp: item.whatsapp,\n  text_grado: item.grado,\n  checkbox_confirma_ciclo: item.confirmaCiclo ? \"Confirmado\" : \"\",\n  text_modalidad: item.modalidad || \"\",\n  status_lead: { label: \"Nuevo\" }\n};\nreturn [{\n  json: {\n    ...item,\n    mondayItemName: item.nombre,\n    mondayColumnValues: JSON.stringify(columnValues)\n  }\n}];"
+        "jsCode": "const item = $input.first().json.body ?? $input.first().json;\nconst fecha = new Intl.DateTimeFormat('es-MX', {\n  timeZone: 'America/Mexico_City',\n  dateStyle: 'short',\n  timeStyle: 'short',\n}).format(new Date());\n\nreturn [{\n  json: {\n    fecha,\n    nombre: item.nombre || '',\n    whatsapp: item.whatsapp || '',\n    grado: item.grado || '',\n    confirmaCiclo: item.confirmaCiclo ? 'Sí' : 'No',\n    modalidad: item.modalidad || '',\n  }\n}];"
       },
-      "id": "22222222-0000-4000-8000-000000000002",
-      "name": "Construir Payload Monday",
+      "id": "33333333-0000-4000-8000-000000000002",
+      "name": "Preparar datos",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [460, 300]
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://api.monday.com/v2",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            { "name": "Content-Type", "value": "application/json" }
-          ]
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "TODO_GOOGLE_SHEET_ID",
+          "mode": "id"
         },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ query: \"mutation($boardId: ID!, $itemName: String!, $columnValues: JSON!) { create_item (board_id: $boardId, item_name: $itemName, column_values: $columnValues) { id } } }\", variables: { boardId: \"TODO_BOARD_ID_IMEF\", itemName: $json.mondayItemName, columnValues: $json.mondayColumnValues } }) }}",
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "list"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Fecha": "={{$json.fecha}}",
+            "Nombre": "={{$json.nombre}}",
+            "WhatsApp": "={{$json.whatsapp}}",
+            "Grado": "={{$json.grado}}",
+            "Confirma ciclo 2026-2027": "={{$json.confirmaCiclo}}",
+            "Modalidad preferida": "={{$json.modalidad}}",
+            "Estatus": "Registrado - sin entrevista agendada"
+          }
+        },
         "options": {}
       },
-      "id": "22222222-0000-4000-8000-000000000003",
-      "name": "Crear Item en Monday",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
+      "id": "33333333-0000-4000-8000-000000000003",
+      "name": "Registrar en CRM (Sheets)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
       "position": [680, 300],
       "credentials": {
-        "httpHeaderAuth": { "id": "TODO", "name": "Monday API Token" }
+        "googleSheetsOAuth2Api": { "id": "TODO", "name": "Google Sheets IMEF" }
       }
     },
     {
       "parameters": {
         "fromEmail": "hello@loretoconsultora.lat",
-        "toEmail": "TODO_CORREO_EQUIPO_IMEF",
-        "subject": "=Nuevo registro IMEF — {{$('Construir Payload Monday').item.json.nombre}}",
+        "toEmail": "imef.queretaro@gmail.com",
+        "subject": "=Nuevo interesado en IMEF — {{$('Preparar datos').item.json.nombre}}",
         "emailFormat": "html",
-        "html": "=<div style=\"font-family:Arial,sans-serif;max-width:560px;margin:0 auto;\"><div style=\"background:linear-gradient(135deg,#3365A6 0%,#3498BF 55%,#4BAABF 100%);padding:24px;border-radius:12px 12px 0 0;\"><h2 style=\"color:#fff;margin:0;font-family:Georgia,serif;\">Nuevo lead — IMEF</h2></div><div style=\"border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px;padding:24px;\"><table style=\"width:100%;font-size:14px;color:#14202B;\"><tr><td style=\"padding:6px 0;font-weight:bold;\">Nombre</td><td style=\"padding:6px 0;\">{{$('Construir Payload Monday').item.json.nombre}}</td></tr><tr><td style=\"padding:6px 0;font-weight:bold;\">WhatsApp</td><td style=\"padding:6px 0;\">{{$('Construir Payload Monday').item.json.whatsapp}}</td></tr><tr><td style=\"padding:6px 0;font-weight:bold;\">Grado de interés</td><td style=\"padding:6px 0;\">{{$('Construir Payload Monday').item.json.grado}}</td></tr><tr><td style=\"padding:6px 0;font-weight:bold;\">Confirma ciclo 2026-2027</td><td style=\"padding:6px 0;\">{{$('Construir Payload Monday').item.json.confirmaCiclo ? 'Sí' : 'No'}}</td></tr><tr><td style=\"padding:6px 0;font-weight:bold;\">Modalidad preferida</td><td style=\"padding:6px 0;\">{{$('Construir Payload Monday').item.json.modalidad}}</td></tr></table><p style=\"font-size:12px;color:#9aa3a8;margin-top:18px;\">Este lead ya quedó registrado en el tablero de Monday \"IMEF\". La landing no captura correo — el contacto es por WhatsApp, dentro de las primeras 24 horas.</p></div></div>",
+        "html": "=<div style=\"font-family:Arial,sans-serif;max-width:560px;margin:0 auto;\"><div style=\"background:linear-gradient(135deg,#3365A6 0%,#3498BF 55%,#4BAABF 100%);padding:24px;border-radius:12px 12px 0 0;\"><h2 style=\"color:#fff;margin:0;\">Nuevo interesado — IMEF</h2></div><div style=\"border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px;padding:24px;\"><table style=\"width:100%;font-size:14px;color:#14202B;\"><tr><td style=\"padding:6px 0;font-weight:bold;\">Nombre</td><td style=\"padding:6px 0;\">{{$('Preparar datos').item.json.nombre}}</td></tr><tr><td style=\"padding:6px 0;font-weight:bold;\">WhatsApp</td><td style=\"padding:6px 0;\">{{$('Preparar datos').item.json.whatsapp}}</td></tr><tr><td style=\"padding:6px 0;font-weight:bold;\">Grado de interés</td><td style=\"padding:6px 0;\">{{$('Preparar datos').item.json.grado}}</td></tr><tr><td style=\"padding:6px 0;font-weight:bold;\">Modalidad preferida</td><td style=\"padding:6px 0;\">{{$('Preparar datos').item.json.modalidad}}</td></tr></table><p style=\"font-size:12px;color:#9aa3a8;margin-top:18px;\">Aún no ha agendado su entrevista en Calendly. Ya quedó registrado en el CRM (Google Sheets, pestaña \"Leads\"). Te avisaremos por separado en cuanto confirme día y horario.</p></div></div>",
         "options": {}
       },
-      "id": "22222222-0000-4000-8000-000000000004",
-      "name": "Notificación Interna Nuevo Lead",
+      "id": "33333333-0000-4000-8000-000000000004",
+      "name": "Aviso interno - nuevo registro",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2,
       "position": [900, 300],
@@ -72,9 +81,9 @@
     }
   ],
   "connections": {
-    "Webhook Registro": { "main": [[{ "node": "Construir Payload Monday", "type": "main", "index": 0 }]] },
-    "Construir Payload Monday": { "main": [[{ "node": "Crear Item en Monday", "type": "main", "index": 0 }]] },
-    "Crear Item en Monday": { "main": [[{ "node": "Notificación Interna Nuevo Lead", "type": "main", "index": 0 }]] }
+    "Webhook Registro": { "main": [[{ "node": "Preparar datos", "type": "main", "index": 0 }]] },
+    "Preparar datos": { "main": [[{ "node": "Registrar en CRM (Sheets)", "type": "main", "index": 0 }]] },
+    "Registrar en CRM (Sheets)": { "main": [[{ "node": "Aviso interno - nuevo registro", "type": "main", "index": 0 }]] }
   },
   "settings": { "executionOrder": "v1" },
   "active": false
