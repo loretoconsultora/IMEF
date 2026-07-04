@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Hero from "@/components/sections/Hero";
 import TeEntendemos from "@/components/sections/TeEntendemos";
 import Diferenciadores from "@/components/sections/Diferenciadores";
@@ -6,20 +9,25 @@ import ComoFunciona from "@/components/sections/ComoFunciona";
 import UrgenciaCTA from "@/components/sections/UrgenciaCTA";
 import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
 import Footer from "@/components/layout/Footer";
+import SolicitudModal from "@/components/forms/SolicitudModal";
 
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const openForm = () => setModalOpen(true);
+
   return (
     <>
       <main className="min-h-screen bg-white">
-        <Hero />
+        <Hero onOpenForm={openForm} />
         <TeEntendemos />
         <Diferenciadores />
         <VideoSocialProof />
         <ComoFunciona />
-        <UrgenciaCTA />
+        <UrgenciaCTA onOpenForm={openForm} />
       </main>
       <Footer />
       <WhatsAppFloating />
+      <SolicitudModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

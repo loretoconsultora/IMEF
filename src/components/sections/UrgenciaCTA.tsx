@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 
-export default function UrgenciaCTA() {
+type Props = {
+  onOpenForm: () => void;
+};
+
+export default function UrgenciaCTA({ onOpenForm }: Props) {
   return (
     <section className="py-16 sm:py-20 px-4 sm:px-6" style={{ background: "#14202B" }}>
       <motion.div
@@ -20,13 +24,13 @@ export default function UrgenciaCTA() {
           No dejes pasar la oportunidad de asegurar el lugar de tu hijo en un
           colegio pensado para su desarrollo integral.
         </p>
-        <a
-          href="#formulario"
+        <button
+          onClick={onOpenForm}
           className="gradient-imef inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity"
           style={{ boxShadow: "0 12px 32px rgba(75,170,191,0.35)" }}
         >
           Agenda tu visita ahora
-        </a>
+        </button>
         <p className="text-xs text-white/50 mt-4">
           Sin costo. Sin compromiso. Cupo limitado.
         </p>

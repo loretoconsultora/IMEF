@@ -1,11 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
 import LeadForm from "@/components/forms/LeadForm";
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { whatsappHref } from "@/lib/whatsapp";
 
-export default function Hero() {
+type Props = {
+  onOpenForm: () => void;
+};
+
+export default function Hero({ onOpenForm }: Props) {
   return (
     <section
       id="hero"
@@ -61,20 +65,20 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-3 mb-3"
           >
-            <a
-              href="#formulario"
+            <button
+              onClick={onOpenForm}
               className="gradient-imef inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity"
               style={{ boxShadow: "0 12px 32px rgba(51,101,166,0.35)" }}
             >
               Agenda tu visita
-            </a>
+            </button>
             <a
               href={whatsappHref()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 font-semibold px-7 py-3.5 rounded-full text-sm border border-azul-profundo text-azul-profundo hover:bg-azul-profundo/5 transition-colors"
             >
-              <MessageCircle size={16} />
+              <WhatsAppIcon size={16} />
               Habla por WhatsApp con un asesor
             </a>
           </motion.div>
