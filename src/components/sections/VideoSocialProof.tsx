@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { PlayCircle } from "lucide-react";
 
-// TODO: reemplazar con la URL de embed real de YouTube/Vimeo (no alojar el archivo de video directamente).
-const VIDEO_EMBED_URL = process.env.NEXT_PUBLIC_VIDEO_EMBED_URL ?? "";
+const VIDEO_EMBED_URL =
+  process.env.NEXT_PUBLIC_VIDEO_EMBED_URL ??
+  "https://www.youtube.com/embed/HKYe9qa357Q?rel=0";
 
 const MOSAICO = [
   "Testimonio individual de un alumno",
