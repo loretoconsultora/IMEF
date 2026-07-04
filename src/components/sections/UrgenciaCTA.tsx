@@ -30,9 +30,6 @@ export default function UrgenciaCTA({ onOpenForm }: Props) {
         >
           Agenda tu visita ahora
         </button>
-        <p className="text-xs text-white/60 mt-4">
-          Sin costo. Sin compromiso. Cupo limitado.
-        </p>
       </motion.div>
     </section>
   );

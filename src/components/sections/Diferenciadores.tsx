@@ -67,7 +67,9 @@ export default function Diferenciadores() {
         className="max-w-3xl mx-auto text-center mb-12"
       >
         <h2 className="font-heading font-extrabold text-xl sm:text-2xl lg:text-3xl mb-4 tracking-tight text-tinta">
-          Una formación pensada para el desarrollo integral de tu hijo
+          Una formación pensada para el
+          <br />
+          desarrollo integral de tu hijo
         </h2>
         <p className="text-base leading-relaxed text-tinta/75">
           Nuestro enfoque educativo está inspirado en los principios de
