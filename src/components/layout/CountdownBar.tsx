@@ -24,6 +24,25 @@ function getTimeLeft(): TimeLeft {
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
+function TimeBox({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="flex flex-col items-center gap-0.5">
+      <div
+        className="rounded-md px-1.5 sm:px-2 py-0.5 font-mono font-extrabold text-sm sm:text-base text-white tabular-nums leading-none"
+        style={{
+          background: "linear-gradient(180deg, #3a3a3a 0%, #000000 100%)",
+          minWidth: "2ch",
+        }}
+      >
+        {value}
+      </div>
+      <span className="text-[9px] font-bold uppercase tracking-wide text-white/70">
+        {label}
+      </span>
+    </div>
+  );
+}
+
 type Props = {
   onOpenForm: () => void;
 };
@@ -46,13 +65,20 @@ export default function CountdownBar({ onOpenForm }: Props) {
   return (
     <div className="sticky top-0 z-40 w-full" style={{ background: "#004AAD" }}>
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 px-4 py-2.5">
-        <p className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 text-xs sm:text-sm font-bold text-white text-center sm:text-left">
-          <span>⏳ Inscripciones abiertas hasta el 15 de agosto —</span>
-          <span className="font-mono tabular-nums">
-            {timeLeft.days}d {pad(timeLeft.hours)}h {pad(timeLeft.minutes)}m{" "}
-            {pad(timeLeft.seconds)}s
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1">
+          <span className="text-xs sm:text-sm font-bold text-white text-center sm:text-left">
+            ⏳ Inscripciones abiertas hasta el 15 de agosto —
           </span>
-        </p>
+          <div className="flex items-center gap-1">
+            <TimeBox value={String(timeLeft.days)} label="días" />
+            <span className="text-white/50 font-bold pb-2.5">:</span>
+            <TimeBox value={pad(timeLeft.hours)} label="hrs" />
+            <span className="text-white/50 font-bold pb-2.5">:</span>
+            <TimeBox value={pad(timeLeft.minutes)} label="min" />
+            <span className="text-white/50 font-bold pb-2.5">:</span>
+            <TimeBox value={pad(timeLeft.seconds)} label="seg" />
+          </div>
+        </div>
         <button
           onClick={onOpenForm}
           className="flex-shrink-0 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full bg-white hover:opacity-90 transition-opacity"
