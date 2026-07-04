@@ -5,6 +5,10 @@ import LeadForm from "@/components/forms/LeadForm";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { whatsappHref } from "@/lib/whatsapp";
 
+const HERO_VIDEO_EMBED_URL =
+  process.env.NEXT_PUBLIC_HERO_VIDEO_EMBED_URL ??
+  "https://www.youtube.com/embed/HKYe9qa357Q?rel=0";
+
 type Props = {
   onOpenForm: () => void;
 };
@@ -93,16 +97,34 @@ export default function Hero({ onOpenForm }: Props) {
           </motion.p>
         </div>
 
-        <motion.div
-          id="formulario"
-          initial={{ opacity: 0, x: 16 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative rounded-3xl bg-white p-6 sm:p-8 scroll-mt-24"
-          style={{ boxShadow: "0 12px 40px rgba(20,32,43,0.12)" }}
-        >
-          <LeadForm />
-        </motion.div>
+        <div>
+          <motion.div
+            initial={{ opacity: 0, x: 16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative rounded-2xl overflow-hidden mb-4"
+            style={{ aspectRatio: "16/9", boxShadow: "0 12px 40px rgba(20,32,43,0.15)" }}
+          >
+            <iframe
+              src={HERO_VIDEO_EMBED_URL}
+              title="Conoce IMEF"
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </motion.div>
+
+          <motion.div
+            id="formulario"
+            initial={{ opacity: 0, x: 16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative rounded-3xl bg-white p-6 sm:p-8 scroll-mt-24"
+            style={{ boxShadow: "0 12px 40px rgba(20,32,43,0.12)" }}
+          >
+            <LeadForm />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
