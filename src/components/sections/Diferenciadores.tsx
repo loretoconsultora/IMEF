@@ -16,7 +16,6 @@ type Diferenciador = {
   icon: LucideIcon;
   titulo: string;
   texto: string;
-  // TODO: agregar la imagen a /public/diferenciadores/<archivo> y poner la ruta aquí (800x450, 16:9).
   imagen: string;
 };
 
@@ -26,42 +25,42 @@ const DIFERENCIADORES: Diferenciador[] = [
     titulo: "Formación bilingüe desde preescolar",
     texto:
       "Tu hijo empieza a dominar un segundo idioma desde la etapa en la que el cerebro aprende con mayor naturalidad — una ventaja que lo acompaña toda su vida.",
-    imagen: "",
+    imagen: "/diferenciadores/diferenciador-1-bilingue.jpg",
   },
   {
     icon: HeartHandshake,
     titulo: "Acompañamiento socioemocional constante",
     texto:
       "Formamos niños que reconocen y gestionan sus emociones, no solo que memorizan contenidos. El desarrollo emocional es la base de todo lo demás.",
-    imagen: "",
+    imagen: "/diferenciadores/diferenciador-2-socioemocional.jpg",
   },
   {
     icon: Rocket,
     titulo: "Habilidades para el mundo de hoy",
     texto:
       "Emprendimiento, tecnología, comunicación y liderazgo: preparamos a tu hijo con las competencias que hoy marcan la diferencia — pensar con iniciativa, comunicarse con seguridad y usar la tecnología con propósito.",
-    imagen: "",
+    imagen: "/diferenciadores/diferenciador-3-habilidades.jpg",
   },
   {
     icon: ShieldCheck,
     titulo: "Ambiente seguro y libre de bullying",
     texto:
       "La protección contra la violencia escolar es un derecho, no un extra. Contamos con protocolos claros de convivencia para que tu hijo aprenda en un entorno donde se sienta seguro y respetado.",
-    imagen: "",
+    imagen: "/diferenciadores/diferenciador-4-seguridad.jpg",
   },
   {
     icon: Users,
     titulo: "Formación en valores familiares",
     texto:
       "Reforzamos en el aula los valores que se enseñan en casa: respeto, responsabilidad y honestidad — para que la formación de tu hijo sea una sola, no dos discursos distintos.",
-    imagen: "",
+    imagen: "/diferenciadores/diferenciador-5-valores.jpg",
   },
   {
     icon: GraduationCap,
     titulo: "Continuidad educativa de preescolar a secundaria",
     texto:
       "Un solo colegio acompaña a tu hijo en cada etapa de su crecimiento — sin cambios de institución, sin adaptaciones forzadas, con una comunidad que lo conoce desde el principio.",
-    imagen: "",
+    imagen: "/diferenciadores/diferenciador-6-continuidad.jpg",
   },
 ];
 
