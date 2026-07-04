@@ -1,8 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const DEADLINE = new Date("2026-08-15T23:59:59-06:00");
+
+// TODO: agregar el logo real de IMEF a /public y colocar la ruta aquí (ej. "/logo-imef.png").
+const LOGO_SRC = "";
 
 type TimeLeft = {
   days: number;
@@ -62,26 +66,39 @@ export default function CountdownBar({ onOpenForm }: Props) {
 
   if (timeLeft === null) return null;
 
+  const countdown = (
+    <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+      <span className="text-xs sm:text-sm font-bold text-white text-center">
+        ⏳ Inscripciones abiertas hasta el 15 de agosto —
+      </span>
+      <div className="flex items-center gap-1">
+        <TimeBox value={String(timeLeft.days)} label="días" />
+        <span className="text-white/50 font-bold pb-2.5">:</span>
+        <TimeBox value={pad(timeLeft.hours)} label="hrs" />
+        <span className="text-white/50 font-bold pb-2.5">:</span>
+        <TimeBox value={pad(timeLeft.minutes)} label="min" />
+        <span className="text-white/50 font-bold pb-2.5">:</span>
+        <TimeBox value={pad(timeLeft.seconds)} label="seg" />
+      </div>
+    </div>
+  );
+
   return (
     <div className="sticky top-0 z-40 w-full" style={{ background: "#004AAD" }}>
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 px-4 py-2.5">
-        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1">
-          <span className="text-xs sm:text-sm font-bold text-white text-center sm:text-left">
-            ⏳ Inscripciones abiertas hasta el 15 de agosto —
-          </span>
-          <div className="flex items-center gap-1">
-            <TimeBox value={String(timeLeft.days)} label="días" />
-            <span className="text-white/50 font-bold pb-2.5">:</span>
-            <TimeBox value={pad(timeLeft.hours)} label="hrs" />
-            <span className="text-white/50 font-bold pb-2.5">:</span>
-            <TimeBox value={pad(timeLeft.minutes)} label="min" />
-            <span className="text-white/50 font-bold pb-2.5">:</span>
-            <TimeBox value={pad(timeLeft.seconds)} label="seg" />
+      <div className="max-w-6xl mx-auto flex flex-col sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center gap-2 px-4 py-2.5">
+        {LOGO_SRC ? (
+          <div className="hidden sm:flex justify-self-start">
+            <Image src={LOGO_SRC} alt="IMEF" width={36} height={36} />
           </div>
-        </div>
+        ) : (
+          <div className="hidden sm:block" />
+        )}
+
+        <div className="justify-self-center">{countdown}</div>
+
         <button
           onClick={onOpenForm}
-          className="hidden sm:block flex-shrink-0 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full bg-white hover:opacity-90 transition-opacity"
+          className="hidden sm:block justify-self-end flex-shrink-0 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full bg-white hover:opacity-90 transition-opacity"
           style={{ color: "#004AAD" }}
         >
           Agendar entrevista
