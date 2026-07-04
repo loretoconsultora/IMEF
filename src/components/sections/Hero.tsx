@@ -77,7 +77,7 @@ export default function Hero({ onOpenForm }: Props) {
               className="gradient-imef inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity"
               style={{ boxShadow: "0 12px 32px rgba(51,101,166,0.35)" }}
             >
-              Agenda tu visita
+              Agenda tu entrevista
             </button>
             <a
               href={whatsappHref()}

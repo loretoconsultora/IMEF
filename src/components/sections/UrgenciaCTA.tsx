@@ -28,7 +28,7 @@ export default function UrgenciaCTA({ onOpenForm }: Props) {
           className="inline-flex items-center justify-center gap-2 font-semibold px-7 py-3.5 rounded-full text-sm bg-white hover:opacity-90 transition-opacity"
           style={{ color: "#3365A6", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}
         >
-          Agenda tu visita ahora
+          Agenda tu entrevista
         </button>
       </motion.div>
     </section>

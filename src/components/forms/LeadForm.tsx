@@ -167,7 +167,7 @@ export default function LeadForm() {
             type="submit"
             className="gradient-imef inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity"
           >
-            Quiero agendar mi visita
+            Iniciar Entrevista
             <ArrowRight size={16} />
           </button>
           <p className="text-xs text-center text-tinta/60">
