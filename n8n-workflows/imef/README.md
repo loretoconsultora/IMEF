@@ -46,7 +46,7 @@ El formulario de reserva de Calendly por defecto solo pide nombre y correo — n
 
 1. **Google Sheets:** Credentials → + Add Credential → busca "Google Sheets OAuth2 API" → autoriza con la cuenta de Google donde está el Sheet. Nómbrala `Google Sheets IMEF`.
 2. **Google Calendar:** Credentials → + Add Credential → busca "Google Calendar OAuth2 API" → autoriza con la **misma cuenta de Google** que conectaste a Calendly en el Paso 2. Nómbrala `Google Calendar IMEF`.
-3. **SMTP:** si ya existe la credencial `SMTP Loreto` (usada en los workflows de VictorIA Academy), puedes reutilizarla aquí también.
+3. **Gmail (correo):** Credentials → + Add Credential → busca "Gmail OAuth2 API" → autoriza con la cuenta que enviará los avisos (`hello@loretoconsultora.lat`, si es Google Workspace). Nómbrala `Gmail IMEF`. Se usa el nodo nativo de Gmail (no SMTP) porque algunos hostings de n8n en la nube (como Railway) bloquean las conexiones SMTP salientes; Gmail vía OAuth2 usa la API de Google (HTTPS) y evita ese problema. Los correos saldrán desde la cuenta que autorices aquí.
 
 ## Paso 5 — Importar y completar los TODOs
 
@@ -54,7 +54,7 @@ Importa ambos archivos JSON y ajusta:
 
 - **`TODO_GOOGLE_SHEET_ID`** (en los 2 workflows): el ID del Sheet del Paso 1.
 - **`TODO_CALENDAR_ID`** (workflow 2, nodo "Nuevo evento en Google Calendar"): el correo/ID del Google Calendar conectado a Calendly (normalmente el mismo correo de esa cuenta de Google).
-- En cada nodo de Google Sheets / Google Calendar / correo marcado en rojo, selecciona la credencial real desde el dropdown.
+- En cada nodo de Google Sheets / Google Calendar / Gmail marcado en rojo, selecciona la credencial real desde el dropdown.
 - **URL del webhook** (workflow 1): una vez activado, copia la URL pública del nodo "Webhook Registro" y colócala en `NEXT_PUBLIC_N8N_IMEF_WEBHOOK` (ver `.env.example` en la raíz del repo) — probablemente ya la tengas configurada de antes.
 
 ## Paso 6 — Probar antes de confiar en él
