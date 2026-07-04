@@ -20,7 +20,7 @@ Workflow de n8n listo para **importar** (Workflows → Import from File) para la
 ## TODOs pendientes antes de activar
 
 - **`TODO_BOARD_ID_IMEF`** en el nodo "Crear Item en Monday": ID del tablero de Monday para IMEF (el número en la URL del tablero).
-- **IDs de columna** (`text_whatsapp`, `text_grado`, `text_colegio_procedencia`, `text_zona_residencia`, `text_ciclo_escolar`, `text_modalidad`, `status_lead`) en el nodo "Construir Payload Monday": son genéricos, reemplázalos por los IDs reales del tablero.
+- **IDs de columna** (`text_whatsapp`, `text_grado`, `checkbox_confirma_ciclo`, `text_modalidad`, `status_lead`) en el nodo "Construir Payload Monday": son genéricos, reemplázalos por los IDs reales del tablero.
 - **`TODO_CORREO_EQUIPO_IMEF`** en el nodo "Notificación Interna Nuevo Lead": correo(s) del equipo de admisiones de IMEF que deben recibir el aviso de nuevo lead.
 - **URL del webhook**: una vez importado y activado, copia la URL pública del nodo "Webhook Registro" y colócala en `NEXT_PUBLIC_N8N_IMEF_WEBHOOK` (ver `.env.example` en la raíz del repo).
 

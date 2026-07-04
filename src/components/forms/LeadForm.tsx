@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, CalendarDays } from "lucide-react";
 
 const WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_IMEF_WEBHOOK ?? "";
+// TODO: reemplazar con la URL real del calendario de Calendly de IMEF (ej. https://calendly.com/imef/visita).
+const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "";
 
 const inputClass =
   "w-full rounded-xl border border-black/10 px-4 py-3 text-sm text-tinta placeholder:text-tinta/40 focus:outline-none focus:border-azul-profundo transition-colors bg-white";
@@ -15,9 +17,7 @@ type Step1 = {
 };
 
 type Step2 = {
-  colegio: string;
-  zona: string;
-  cicloEscolar: string;
+  confirmaCiclo: boolean;
   modalidad: string;
 };
 
@@ -33,9 +33,7 @@ export default function LeadForm() {
     grado: "",
   });
   const [step2Data, setStep2Data] = useState<Step2>({
-    colegio: "",
-    zona: "",
-    cicloEscolar: "",
+    confirmaCiclo: false,
     modalidad: "",
   });
 
@@ -45,7 +43,13 @@ export default function LeadForm() {
 
   const handleStep2Change = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => setStep2Data((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  ) => {
+    const { name, value, type } = e.target;
+    setStep2Data((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+    }));
+  };
 
   const handleStep1Submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,11 +79,29 @@ export default function LeadForm() {
       <div className="flex flex-col items-center gap-3 text-center py-8">
         <CheckCircle2 size={48} className="text-azul-profundo" />
         <p className="font-heading text-xl font-bold text-tinta">
-          ¡Listo! Recibimos tu información.
+          ¡Listo! Ya tenemos tu información.
         </p>
-        <p className="text-sm text-tinta/70 max-w-xs">
-          Te contactaremos en menos de 24 horas para agendar tu visita.
-        </p>
+        {CALENDLY_URL ? (
+          <>
+            <p className="text-sm text-tinta/70 max-w-xs">
+              Elige el día y horario que mejor te acomode para tu visita.
+            </p>
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gradient-imef inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity mt-1"
+            >
+              <CalendarDays size={16} />
+              Elegir mi horario
+            </a>
+          </>
+        ) : (
+          <p className="text-sm text-tinta/70 max-w-xs">
+            Te contactaremos en menos de 24 horas para coordinar el día y
+            horario de tu visita.
+          </p>
+        )}
       </div>
     );
   }
@@ -141,27 +163,6 @@ export default function LeadForm() {
 
       {step === 2 && (
         <form onSubmit={handleStep2Submit} className="flex flex-col gap-3">
-          <input
-            name="colegio"
-            placeholder="Colegio de procedencia"
-            value={step2Data.colegio}
-            onChange={handleStep2Change}
-            className={inputClass}
-          />
-          <input
-            name="zona"
-            placeholder="Zona de residencia"
-            value={step2Data.zona}
-            onChange={handleStep2Change}
-            className={inputClass}
-          />
-          <input
-            name="cicloEscolar"
-            placeholder="Ciclo escolar de interés (ej. 2026-2027)"
-            value={step2Data.cicloEscolar}
-            onChange={handleStep2Change}
-            className={inputClass}
-          />
           <select
             name="modalidad"
             value={step2Data.modalidad}
@@ -177,6 +178,19 @@ export default function LeadForm() {
               </option>
             ))}
           </select>
+
+          <label className="flex items-start gap-2.5 text-sm text-tinta/80 px-1">
+            <input
+              required
+              type="checkbox"
+              name="confirmaCiclo"
+              checked={step2Data.confirmaCiclo}
+              onChange={handleStep2Change}
+              className="mt-0.5 w-4 h-4 flex-shrink-0 accent-[#3365A6]"
+            />
+            Confirmo mi interés en inscripciones para el ciclo escolar 2026 -
+            2027
+          </label>
 
           <button
             type="submit"
