@@ -47,19 +47,22 @@ export default function WhatsAppFloating() {
             </button>
           </div>
           <div className="p-4">
-            <div className="rounded-xl rounded-tl-none bg-gris-claro px-3.5 py-2.5 text-sm text-tinta/85 mb-3">
-              ¡Hola! 👋 ¿En qué podemos ayudarte con la inscripción de tu
-              hijo?
+            <div className="rounded-xl rounded-tl-none bg-gris-claro px-3.5 py-2.5 text-sm text-tinta/85 mb-3 leading-relaxed">
+              ¡Hola! 👋 Agenda tu entrevista sin costo y descubre de cerca
+              nuestra propuesta educativa — te ayudamos a resolver si IMEF
+              es la formación ideal para tu hija o hijo.
             </div>
             <a
-              href={whatsappHref()}
+              href={whatsappHref(
+                "Hola IMEF, me gustaría agendar una entrevista para conocer más sobre su oferta educativa y saber si es la opción ideal para mi hija o hijo."
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 text-white font-semibold px-4 py-2.5 rounded-full text-sm hover:opacity-90 transition-opacity"
               style={{ background: "#25D366" }}
             >
               <WhatsAppIcon size={16} />
-              Iniciar conversación
+              Agendar mi entrevista
             </a>
           </div>
         </div>
