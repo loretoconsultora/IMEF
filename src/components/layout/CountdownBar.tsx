@@ -5,8 +5,7 @@ import Image from "next/image";
 
 const DEADLINE = new Date("2026-08-15T23:59:59-06:00");
 
-// TODO: agregar el logo real de IMEF a /public y colocar la ruta aquí (ej. "/logo-imef.png").
-const LOGO_SRC = "";
+const LOGO_SRC = "/logo-imef.jpg";
 
 type TimeLeft = {
   days: number;
@@ -86,13 +85,17 @@ export default function CountdownBar({ onOpenForm }: Props) {
   return (
     <div className="sticky top-0 z-40 w-full" style={{ background: "#004AAD" }}>
       <div className="max-w-6xl mx-auto flex flex-col sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center gap-2 px-4 py-2.5">
-        {LOGO_SRC ? (
-          <div className="hidden sm:flex justify-self-start">
-            <Image src={LOGO_SRC} alt="IMEF" width={36} height={36} />
+        <div className="hidden sm:flex justify-self-start">
+          <div className="rounded-lg bg-white p-1">
+            <Image
+              src={LOGO_SRC}
+              alt="IMEF"
+              width={120}
+              height={40}
+              className="h-8 w-auto rounded"
+            />
           </div>
-        ) : (
-          <div className="hidden sm:block" />
-        )}
+        </div>
 
         <div className="justify-self-center">{countdown}</div>
 
