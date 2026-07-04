@@ -55,7 +55,7 @@
     },
     {
       "parameters": {
-        "fromEmail": "imef.queretaro@gmail.com",
+        "fromEmail": "hello@loretoconsultora.lat",
         "toEmail": "imef.queretaro@gmail.com",
         "subject": "=Nuevo interesado en IMEF — {{$('Preparar datos').item.json['Nombre']}}",
         "emailFormat": "html",

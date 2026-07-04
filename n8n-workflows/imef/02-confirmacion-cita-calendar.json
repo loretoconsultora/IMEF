@@ -62,7 +62,7 @@
     },
     {
       "parameters": {
-        "fromEmail": "imef.queretaro@gmail.com",
+        "fromEmail": "hello@loretoconsultora.lat",
         "toEmail": "imef.queretaro@gmail.com",
         "subject": "=Entrevista agendada — {{$('Extraer datos de la cita').item.json['Nombre']}}",
         "emailFormat": "html",
