@@ -55,7 +55,7 @@ export default function Hero({ onOpenForm }: Props) {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg leading-relaxed mb-7 text-tinta/80 max-w-xl"
+            className="text-base leading-relaxed mb-7 text-tinta/80 max-w-xl"
           >
             En el Instituto Mexicano de Excelencia Formativa, tu hijo estará
             acompañado en cada etapa de su desarrollo —{" "}

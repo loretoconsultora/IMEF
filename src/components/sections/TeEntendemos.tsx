@@ -16,7 +16,7 @@ export default function TeEntendemos() {
           ¿Sigues comparando escuelas y no sabes cuál va a cuidar realmente el
           desarrollo de tu hijo?
         </h2>
-        <p className="text-base sm:text-lg leading-relaxed text-white/85 mb-4">
+        <p className="text-base leading-relaxed text-white/85 mb-4">
           No se trata solo de buenas calificaciones. Se trata de que{" "}
           <span className="font-bold">
             tu hijo crezca seguro, feliz y con las herramientas para enfrentar
@@ -24,7 +24,7 @@ export default function TeEntendemos() {
           </span>{" "}
           que le toca vivir.
         </p>
-        <p className="text-base sm:text-lg leading-relaxed text-white/85">
+        <p className="text-base leading-relaxed text-white/85">
           En IMEF creemos en una formación integral: académica, emocional y
           humana, para que cada etapa de su desarrollo cuente.
         </p>

@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 const PASOS = [
   {
     num: "01",
-    titulo: "Agenda tu visita o entrevista",
+    titulo: "Agenda tu entrevista",
     texto: "Presencial en nuestras instalaciones o en línea, como prefieras.",
   },
   {
     num: "02",
-    titulo: "Conócenos de cerca",
+    titulo: "Descubre si somos la escuela ideal",
     texto:
-      "Recorre el plantel, conoce a nuestro equipo y resuelve todas tus dudas sobre nuestra metodología.",
+      "Conoce nuestro modelo educativo y ADN, resuelve todas tus dudas y aclara los siguientes pasos.",
   },
   {
     num: "03",
-    titulo: "Entrevista con nuestro equipo",
-    texto: "Una conversación cercana para conocer a tu hijo y entender qué necesita.",
+    titulo: "Inicia tu inscripción",
+    texto: "Examen de admisión, entrevista con el alumno y documentación.",
   },
   {
     num: "04",
-    titulo: "Resultados e inscripción",
-    texto: "Te acompañamos en los siguientes pasos para asegurar su lugar.",
+    titulo: "Resultados",
+    texto: "Preparémonos juntos para el inicio del ciclo escolar.",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function ComoFunciona() {
             <h3 className="font-heading font-bold text-base mt-2 mb-2 text-tinta">
               {p.titulo}
             </h3>
-            <p className="text-sm leading-relaxed text-tinta/70">{p.texto}</p>
+            <p className="text-base leading-relaxed text-tinta/70">{p.texto}</p>
           </motion.div>
         ))}
       </div>

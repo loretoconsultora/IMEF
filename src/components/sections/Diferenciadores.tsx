@@ -101,20 +101,21 @@ export default function Diferenciadores() {
                   className="object-cover"
                 />
               ) : (
-                <div className="gradient-imef absolute inset-0 flex items-center justify-center opacity-90">
-                  <d.icon size={32} className="text-white/70" />
-                </div>
+                <div className="gradient-imef absolute inset-0 opacity-90" />
               )}
+              <div
+                className="absolute top-3 left-1/2 -translate-x-1/2 w-11 h-11 rounded-xl flex items-center justify-center gradient-imef"
+                style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.25)" }}
+              >
+                <d.icon size={20} className="text-white" />
+              </div>
             </div>
 
             <div className="p-6">
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 gradient-imef">
-                <d.icon size={20} className="text-white" />
-              </div>
               <h3 className="font-heading font-bold text-base mb-2 text-tinta">
                 {d.titulo}
               </h3>
-              <p className="text-sm leading-relaxed text-tinta/70">{d.texto}</p>
+              <p className="text-base leading-relaxed text-tinta/70">{d.texto}</p>
             </div>
           </motion.div>
         ))}
