@@ -81,7 +81,7 @@ export default function CountdownBar({ onOpenForm }: Props) {
         </div>
         <button
           onClick={onOpenForm}
-          className="flex-shrink-0 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full bg-white hover:opacity-90 transition-opacity"
+          className="hidden sm:block flex-shrink-0 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full bg-white hover:opacity-90 transition-opacity"
           style={{ color: "#004AAD" }}
         >
           Agendar entrevista
