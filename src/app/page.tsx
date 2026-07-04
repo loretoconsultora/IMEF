@@ -23,7 +23,7 @@ export default function Home() {
         <Hero onOpenForm={openForm} />
         <TeEntendemos />
         <Diferenciadores />
-        <VideoSocialProof />
+        <VideoSocialProof onOpenForm={openForm} />
         <ComoFunciona />
         <UrgenciaCTA onOpenForm={openForm} />
       </main>

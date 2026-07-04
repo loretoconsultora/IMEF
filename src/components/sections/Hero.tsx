@@ -48,7 +48,7 @@ export default function Hero({ onOpenForm }: Props) {
             style={{ lineHeight: 1.1 }}
           >
             Encuentra el colegio donde tu hijo va a crecer con{" "}
-            <span className="gradient-text-imef">confianza y resultados reales</span>.
+            <span className="gradient-text-imef">confianza y resultados reales</span>
           </motion.h1>
 
           <motion.p

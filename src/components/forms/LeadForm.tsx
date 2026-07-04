@@ -123,7 +123,7 @@ export default function LeadForm() {
 
   return (
     <div>
-      <p className="font-heading text-lg font-bold text-tinta mb-4">
+      <p className="font-heading text-lg font-bold text-azul-profundo mb-4">
         {step === 1 ? "Da el primer paso hoy" : "Un último paso"}
       </p>
 

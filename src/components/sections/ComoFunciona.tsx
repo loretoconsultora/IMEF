@@ -36,8 +36,8 @@ export default function ComoFunciona() {
         transition={{ duration: 0.6 }}
         className="max-w-3xl mx-auto text-center mb-12"
       >
-        <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl mb-3 tracking-tight text-tinta">
-          Te acompañamos en cada paso — sin presión, sin letras chiquitas.
+        <h2 className="font-heading font-extrabold text-xl sm:text-2xl lg:text-3xl mb-3 tracking-tight text-tinta">
+          Te acompañamos en cada paso
         </h2>
       </motion.div>
 
