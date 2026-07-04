@@ -2,18 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Languages,
-  HeartHandshake,
-  Rocket,
-  ShieldCheck,
-  Users,
-  GraduationCap,
-  type LucideIcon,
-} from "lucide-react";
 
 type Diferenciador = {
-  icon: LucideIcon;
   titulo: string;
   texto: string;
   imagen: string;
@@ -21,42 +11,36 @@ type Diferenciador = {
 
 const DIFERENCIADORES: Diferenciador[] = [
   {
-    icon: Languages,
     titulo: "Formación bilingüe desde preescolar",
     texto:
       "Tu hijo empieza a dominar un segundo idioma desde la etapa en la que el cerebro aprende con mayor naturalidad — una ventaja que lo acompaña toda su vida.",
     imagen: "/diferenciadores/diferenciador-1-bilingue.jpg",
   },
   {
-    icon: HeartHandshake,
     titulo: "Acompañamiento socioemocional constante",
     texto:
       "Formamos niños que reconocen y gestionan sus emociones, no solo que memorizan contenidos.",
     imagen: "/diferenciadores/diferenciador-2-socioemocional.jpg",
   },
   {
-    icon: Rocket,
     titulo: "Habilidades para el mundo de hoy",
     texto:
       "Emprendimiento, tecnología, comunicación y liderazgo: preparamos a tu hijo con las competencias que hoy marcan la diferencia.",
     imagen: "/diferenciadores/diferenciador-3-habilidades.jpg",
   },
   {
-    icon: ShieldCheck,
     titulo: "Ambiente seguro y libre de bullying",
     texto:
       "Contamos con protocolos claros de convivencia para que tu hijo aprenda en un entorno donde se sienta seguro y respetado.",
     imagen: "/diferenciadores/diferenciador-4-seguridad.jpg",
   },
   {
-    icon: Users,
     titulo: "Formación en valores familiares",
     texto:
       "Reforzamos en el aula los valores que se enseñan en casa: respeto, responsabilidad y honestidad.",
     imagen: "/diferenciadores/diferenciador-5-valores.jpg",
   },
   {
-    icon: GraduationCap,
     titulo: "Continuidad educativa de preescolar a secundaria",
     texto:
       "Un solo colegio acompaña a tu hijo en cada etapa de su crecimiento — sin cambios de institución, sin adaptaciones forzadas, con una comunidad que lo conoce desde el principio.",
@@ -103,16 +87,10 @@ export default function Diferenciadores() {
               ) : (
                 <div className="gradient-imef absolute inset-0 opacity-90" />
               )}
-              <div
-                className="absolute top-3 left-1/2 -translate-x-1/2 w-11 h-11 rounded-xl flex items-center justify-center gradient-imef"
-                style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.25)" }}
-              >
-                <d.icon size={20} className="text-white" />
-              </div>
             </div>
 
             <div className="p-6">
-              <h3 className="font-heading font-bold text-base mb-2 text-tinta">
+              <h3 className="font-heading font-bold text-base mb-2 text-azul-profundo">
                 {d.titulo}
               </h3>
               <p className="text-base leading-relaxed text-tinta/70">{d.texto}</p>

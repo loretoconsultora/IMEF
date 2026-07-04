@@ -52,10 +52,10 @@ export default function ComoFunciona() {
             className="relative rounded-2xl p-6 border border-black/5"
             style={{ boxShadow: "0 8px 24px rgba(20,32,43,0.06)" }}
           >
-            <span className="font-heading font-extrabold text-3xl text-azul-profundo/25">
+            <span className="font-heading font-extrabold text-3xl text-azul-profundo">
               {p.num}
             </span>
-            <h3 className="font-heading font-bold text-base mt-2 mb-2 text-tinta">
+            <h3 className="font-heading font-bold text-base mt-2 mb-2 text-azul-profundo">
               {p.titulo}
             </h3>
             <p className="text-base leading-relaxed text-tinta/70">{p.texto}</p>

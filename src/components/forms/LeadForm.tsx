@@ -89,7 +89,7 @@ export default function LeadForm() {
     return (
       <div className="flex flex-col items-center gap-3 text-center py-8">
         <CheckCircle2 size={48} className="text-azul-profundo" />
-        <p className="font-heading text-xl font-bold text-tinta">
+        <p className="font-heading text-xl font-bold text-azul-profundo">
           ¡Listo! Ya tenemos tu información.
         </p>
         {calendlyUrl ? (
