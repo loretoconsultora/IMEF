@@ -4,8 +4,12 @@ import { useState } from "react";
 import { CheckCircle2, ArrowRight, CalendarDays } from "lucide-react";
 
 const WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_IMEF_WEBHOOK ?? "";
-// TODO: reemplazar con la URL real del calendario de Calendly de IMEF (ej. https://calendly.com/imef/visita).
-const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "";
+const CALENDLY_PRESENCIAL_URL =
+  process.env.NEXT_PUBLIC_CALENDLY_PRESENCIAL_URL ??
+  "https://calendly.com/hello-loretoconsultora-jott/imef-entrevista-presencial";
+const CALENDLY_ONLINE_URL =
+  process.env.NEXT_PUBLIC_CALENDLY_ONLINE_URL ??
+  "https://calendly.com/hello-loretoconsultora-jott/imef-entrevista-online";
 
 const inputClass =
   "w-full rounded-xl border border-black/10 px-4 py-3 text-sm text-tinta placeholder:text-tinta/40 focus:outline-none focus:border-azul-profundo transition-colors bg-white";
@@ -75,19 +79,30 @@ export default function LeadForm() {
   };
 
   if (step === "done") {
+    const calendlyUrl =
+      step2Data.modalidad === "Visita presencial"
+        ? CALENDLY_PRESENCIAL_URL
+        : step2Data.modalidad === "Entrevista en línea"
+          ? CALENDLY_ONLINE_URL
+          : "";
+
     return (
       <div className="flex flex-col items-center gap-3 text-center py-8">
         <CheckCircle2 size={48} className="text-azul-profundo" />
         <p className="font-heading text-xl font-bold text-tinta">
           ¡Listo! Ya tenemos tu información.
         </p>
-        {CALENDLY_URL ? (
+        {calendlyUrl ? (
           <>
             <p className="text-sm text-tinta/70 max-w-xs">
-              Elige el día y horario que mejor te acomode para tu visita.
+              Elige el día y horario que mejor te acomode para tu
+              {step2Data.modalidad === "Visita presencial"
+                ? " visita"
+                : " entrevista en línea"}
+              .
             </p>
             <a
-              href={CALENDLY_URL}
+              href={calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="gradient-imef inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity mt-1"

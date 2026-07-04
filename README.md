@@ -26,14 +26,14 @@ el webhook está vacío), pero no se enviará ningún lead hasta que configures:
 - `NEXT_PUBLIC_VIDEO_EMBED_URL`: URL de embed de YouTube/Vimeo del video de
   prueba social (bloque "Míralo con tus propios ojos"). Sin esta variable se
   muestra un placeholder.
-- `NEXT_PUBLIC_CALENDLY_URL`: URL del calendario de Calendly de IMEF. Sin
-  esta variable, la confirmación del formulario muestra un mensaje genérico
-  de "te contactaremos" en vez del botón para elegir horario.
+- `NEXT_PUBLIC_CALENDLY_PRESENCIAL_URL` / `NEXT_PUBLIC_CALENDLY_ONLINE_URL`:
+  URLs de Calendly de IMEF (una por modalidad). Ya tienen un valor por
+  defecto hardcodeado en `src/components/forms/LeadForm.tsx`; solo úsalas
+  para sobreescribirlas.
 
 ## Pendientes de contenido real (marcados como TODO en el código)
 
 - Video de prueba social y clips del mosaico (`VideoSocialProof.tsx`).
-- URL real del calendario de Calendly (`src/components/forms/LeadForm.tsx`).
 - IDs de tablero/columna de Monday y correo del equipo en
   `n8n-workflows/imef/01-registro.json`.
 
