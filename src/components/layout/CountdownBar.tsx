@@ -86,15 +86,7 @@ export default function CountdownBar({ onOpenForm }: Props) {
     <div className="sticky top-0 z-40 w-full" style={{ background: "#004AAD" }}>
       <div className="max-w-6xl mx-auto flex flex-col sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center gap-2 px-4 py-2.5">
         <div className="hidden sm:flex justify-self-start">
-          <div className="rounded-lg bg-white p-1">
-            <Image
-              src={LOGO_SRC}
-              alt="IMEF"
-              width={120}
-              height={40}
-              className="h-8 w-auto rounded"
-            />
-          </div>
+          <Image src={LOGO_SRC} alt="IMEF" width={120} height={40} className="h-9 w-auto" />
         </div>
 
         <div className="justify-self-center">{countdown}</div>
