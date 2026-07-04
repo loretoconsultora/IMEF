@@ -31,28 +31,28 @@ const DIFERENCIADORES: Diferenciador[] = [
     icon: HeartHandshake,
     titulo: "Acompañamiento socioemocional constante",
     texto:
-      "Formamos niños que reconocen y gestionan sus emociones, no solo que memorizan contenidos. El desarrollo emocional es la base de todo lo demás.",
+      "Formamos niños que reconocen y gestionan sus emociones, no solo que memorizan contenidos.",
     imagen: "/diferenciadores/diferenciador-2-socioemocional.jpg",
   },
   {
     icon: Rocket,
     titulo: "Habilidades para el mundo de hoy",
     texto:
-      "Emprendimiento, tecnología, comunicación y liderazgo: preparamos a tu hijo con las competencias que hoy marcan la diferencia — pensar con iniciativa, comunicarse con seguridad y usar la tecnología con propósito.",
+      "Emprendimiento, tecnología, comunicación y liderazgo: preparamos a tu hijo con las competencias que hoy marcan la diferencia.",
     imagen: "/diferenciadores/diferenciador-3-habilidades.jpg",
   },
   {
     icon: ShieldCheck,
     titulo: "Ambiente seguro y libre de bullying",
     texto:
-      "La protección contra la violencia escolar es un derecho, no un extra. Contamos con protocolos claros de convivencia para que tu hijo aprenda en un entorno donde se sienta seguro y respetado.",
+      "Contamos con protocolos claros de convivencia para que tu hijo aprenda en un entorno donde se sienta seguro y respetado.",
     imagen: "/diferenciadores/diferenciador-4-seguridad.jpg",
   },
   {
     icon: Users,
     titulo: "Formación en valores familiares",
     texto:
-      "Reforzamos en el aula los valores que se enseñan en casa: respeto, responsabilidad y honestidad — para que la formación de tu hijo sea una sola, no dos discursos distintos.",
+      "Reforzamos en el aula los valores que se enseñan en casa: respeto, responsabilidad y honestidad.",
     imagen: "/diferenciadores/diferenciador-5-valores.jpg",
   },
   {
@@ -74,16 +74,11 @@ export default function Diferenciadores() {
         transition={{ duration: 0.6 }}
         className="max-w-3xl mx-auto text-center mb-12"
       >
-        <h2 className="font-heading font-extrabold text-xl sm:text-2xl lg:text-3xl mb-4 tracking-tight text-tinta">
+        <h2 className="font-heading font-extrabold text-xl sm:text-2xl lg:text-3xl tracking-tight text-tinta">
           Una formación pensada para el
           <br />
           desarrollo integral de tu hijo
         </h2>
-        <p className="text-base leading-relaxed text-tinta/75">
-          Nuestro enfoque educativo está inspirado en los principios de
-          desarrollo infantil que priorizan el crecimiento cognitivo,
-          emocional y social en equilibrio — no solo lo académico.
-        </p>
       </motion.div>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
