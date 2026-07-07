@@ -4,12 +4,9 @@ import { useState } from "react";
 import { CheckCircle2, ArrowRight, CalendarDays } from "lucide-react";
 
 const WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_IMEF_WEBHOOK ?? "";
-const CALENDLY_PRESENCIAL_URL =
-  process.env.NEXT_PUBLIC_CALENDLY_PRESENCIAL_URL ??
-  "https://calendly.com/hello-loretoconsultora-jott/imef-entrevista-presencial";
 const CALENDLY_ONLINE_URL =
   process.env.NEXT_PUBLIC_CALENDLY_ONLINE_URL ??
-  "https://calendly.com/hello-loretoconsultora-jott/imef-entrevista-online";
+  "https://calendly.com/imef-queretaro/imef-entrevista-online";
 
 const inputClass =
   "w-full rounded-xl border border-black/10 px-4 py-3 text-sm text-tinta placeholder:text-tinta/40 focus:outline-none focus:border-azul-profundo transition-colors bg-white";
@@ -71,26 +68,15 @@ export default function LeadForm() {
         <p className="text-sm text-tinta/70 max-w-xs">
           Elige el día y horario que mejor te acomode para tu entrevista.
         </p>
-        <div className="flex flex-col sm:flex-row gap-2.5 w-full mt-1">
-          <a
-            href={CALENDLY_PRESENCIAL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gradient-imef inline-flex flex-1 items-center justify-center gap-2 text-white font-semibold px-5 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity"
-          >
-            <CalendarDays size={16} />
-            Visita presencial
-          </a>
-          <a
-            href={CALENDLY_ONLINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gradient-imef inline-flex flex-1 items-center justify-center gap-2 text-white font-semibold px-5 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity"
-          >
-            <CalendarDays size={16} />
-            Entrevista en línea
-          </a>
-        </div>
+        <a
+          href={CALENDLY_ONLINE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="gradient-imef inline-flex items-center justify-center gap-2 text-white font-semibold px-5 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity mt-1"
+        >
+          <CalendarDays size={16} />
+          Entrevista en línea
+        </a>
       </div>
     );
   }

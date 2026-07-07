@@ -28,10 +28,9 @@ el webhook está vacío), pero no se enviará ningún lead hasta que configures:
 - `NEXT_PUBLIC_TESTIMONIO_1_EMBED_URL` / `NEXT_PUBLIC_TESTIMONIO_2_EMBED_URL`:
   los 2 videos del bloque "Míralo con tus propios ojos". Ya tienen un valor
   por defecto hardcodeado en `VideoSocialProof.tsx`.
-- `NEXT_PUBLIC_CALENDLY_PRESENCIAL_URL` / `NEXT_PUBLIC_CALENDLY_ONLINE_URL`:
-  URLs de Calendly de IMEF (una por modalidad). Ya tienen un valor por
-  defecto hardcodeado en `src/components/forms/LeadForm.tsx`; solo úsalas
-  para sobreescribirlas.
+- `NEXT_PUBLIC_CALENDLY_ONLINE_URL`: URL de Calendly de IMEF para la
+  entrevista en línea. Ya tiene un valor por defecto hardcodeado en
+  `src/components/forms/LeadForm.tsx`; solo úsala para sobreescribirla.
 
 ## Pendientes de configuración (marcados como TODO en el código)
 
