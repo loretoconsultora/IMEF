@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { MapPin } from "lucide-react";
 
 const DEADLINE = new Date("2026-08-15T23:59:59-06:00");
 
@@ -85,8 +86,12 @@ export default function CountdownBar({ onOpenForm }: Props) {
   return (
     <div className="sticky top-0 z-40 w-full" style={{ background: "#004AAD" }}>
       <div className="max-w-6xl mx-auto flex flex-col sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center gap-2 px-4 py-2.5">
-        <div className="flex justify-center sm:justify-self-start">
+        <div className="flex items-center justify-center sm:justify-self-start gap-2">
           <Image src={LOGO_SRC} alt="IMEF" width={120} height={40} className="h-7 sm:h-9 w-auto" />
+          <span className="hidden xl:flex items-center gap-1 text-[11px] font-semibold text-white/70 border-l border-white/25 pl-2 whitespace-nowrap">
+            <MapPin size={12} />
+            Centro Sur, Querétaro
+          </span>
         </div>
 
         <div className="justify-self-center">{countdown}</div>

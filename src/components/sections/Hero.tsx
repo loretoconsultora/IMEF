@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { MapPin } from "lucide-react";
 import LeadForm from "@/components/forms/LeadForm";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { whatsappHref } from "@/lib/whatsapp";
@@ -65,6 +66,16 @@ export default function Hero({ onOpenForm }: Props) {
             — en un ambiente seguro, pensado para que crezca feliz y preparado
             para el futuro.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="flex items-center gap-1.5 mb-5 text-sm font-semibold text-azul-profundo"
+          >
+            <MapPin size={16} />
+            Centro Sur, Querétaro
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
