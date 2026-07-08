@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Poppins } from "next/font/google";
+import MetaPixel from "@/components/analytics/MetaPixel";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -43,7 +44,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${montserrat.variable} ${poppins.variable}`}>
-      <body className="antialiased text-tinta">{children}</body>
+      <body className="antialiased text-tinta">
+        <MetaPixel />
+        {children}
+      </body>
     </html>
   );
 }

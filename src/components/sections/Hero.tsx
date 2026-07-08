@@ -5,6 +5,7 @@ import { MapPin } from "lucide-react";
 import LeadForm from "@/components/forms/LeadForm";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { whatsappHref } from "@/lib/whatsapp";
+import { trackContact } from "@/lib/metaPixel";
 
 const HERO_VIDEO_EMBED_URL =
   process.env.NEXT_PUBLIC_HERO_VIDEO_EMBED_URL ??
@@ -94,6 +95,7 @@ export default function Hero({ onOpenForm }: Props) {
               href={whatsappHref()}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackContact}
               className="inline-flex items-center justify-center gap-2 font-semibold px-7 py-3.5 rounded-full text-sm border border-azul-profundo text-azul-profundo hover:bg-azul-profundo/5 transition-colors"
             >
               <WhatsAppIcon size={16} />

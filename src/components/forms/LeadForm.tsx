@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle2, ArrowRight, CalendarDays } from "lucide-react";
+import { trackLead } from "@/lib/metaPixel";
 
 const WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_IMEF_WEBHOOK ?? "";
 const CALENDLY_ONLINE_URL =
@@ -53,6 +54,7 @@ export default function LeadForm() {
       }
       setStatus("idle");
       setDone(true);
+      trackLead();
     } catch {
       setStatus("error");
     }

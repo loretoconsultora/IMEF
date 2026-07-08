@@ -31,6 +31,10 @@ el webhook está vacío), pero no se enviará ningún lead hasta que configures:
 - `NEXT_PUBLIC_CALENDLY_ONLINE_URL`: URL de Calendly de IMEF para la
   entrevista en línea. Ya tiene un valor por defecto hardcodeado en
   `src/components/forms/LeadForm.tsx`; solo úsala para sobreescribirla.
+- `NEXT_PUBLIC_META_PIXEL_ID`: ID del Pixel de Meta (Facebook/Instagram Ads).
+  Sin esta variable el Pixel no se carga. Con ella, se disparan 3 eventos:
+  `PageView` (automático en cada carga), `Contact` (clic en cualquier botón
+  de WhatsApp) y `Lead` (envío exitoso del formulario).
 
 ## Pendientes de configuración (marcados como TODO en el código)
 
@@ -42,6 +46,7 @@ el webhook está vacío), pero no se enviará ningún lead hasta que configures:
 
 - `src/app/page.tsx` — composición de la landing (una sola página, sin nav).
 - `src/components/sections/` — cada bloque de la landing (Hero, Diferenciadores, etc.).
-- `src/components/forms/LeadForm.tsx` — formulario de 2 pasos embebido en el hero.
+- `src/components/forms/LeadForm.tsx` — formulario de un paso embebido en el hero.
+- `src/components/analytics/MetaPixel.tsx` — Pixel de Meta (PageView, Contact, Lead).
 - `n8n-workflows/imef/` — workflows de n8n: registro de leads en Google Sheets
   (CRM) + aviso por correo cuando se confirma una entrevista en Calendly.

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { whatsappHref } from "@/lib/whatsapp";
+import { trackContact } from "@/lib/metaPixel";
 
 export default function WhatsAppFloating() {
   const [open, setOpen] = useState(false);
@@ -58,6 +59,7 @@ export default function WhatsAppFloating() {
               )}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackContact}
               className="flex items-center justify-center gap-2 text-white font-semibold px-4 py-2.5 rounded-full text-sm hover:opacity-90 transition-opacity"
               style={{ background: "#25D366" }}
             >
