@@ -57,12 +57,12 @@ export default function Hero({ onOpenForm }: Props) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base leading-relaxed mb-7 text-tinta/80 max-w-xl"
           >
-            En el Instituto Mexicano de Excelencia Formativa, tu hijo estará
+            En el Instituto Mexicano de Excelencia Formativa, tu hijo será
             acompañado en cada etapa de su desarrollo —{" "}
             <span className="font-bold text-azul-profundo">
               académico, emocional y humano
             </span>{" "}
-            — en un ambiente seguro pensado para que crezca feliz y preparado
+            — en un ambiente seguro, pensado para que crezca feliz y preparado
             para el futuro.
           </motion.p>
 
