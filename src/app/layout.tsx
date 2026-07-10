@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Poppins } from "next/font/google";
 import MetaPixel from "@/components/analytics/MetaPixel";
+import Clarity from "@/components/analytics/Clarity";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -46,6 +47,7 @@ export default function RootLayout({
     <html lang="es" className={`${montserrat.variable} ${poppins.variable}`}>
       <body className="antialiased text-tinta">
         <MetaPixel />
+        <Clarity />
         {children}
       </body>
     </html>
